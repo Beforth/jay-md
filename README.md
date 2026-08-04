@@ -1,3 +1,9 @@
+# Beforth Docs
+
+A markdown-first documentation framework for the [Beforth](https://beforth.in)
+brand. Drop `.md` / `.mdx` files into `content/` and the site generates the
+sidebar navigation, routes, search index, Table of Contents, and prev/next
+links for you — no config, no routes to register.
 
 Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
 
@@ -161,4 +167,4 @@ background only — never on dark or colored surfaces.
 
 Any Node/Vercel host. `npm run build` statically generates all doc routes;
 unknown slugs return a styled 404. No environment variables required.
-# jay-md
+#
