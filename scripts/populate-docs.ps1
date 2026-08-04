@@ -34,7 +34,17 @@ $Version = "1.0.0"
 
 function Write-Utf8NoBom([string]$Path, [string]$Content) {
   if (-not $Content.EndsWith("`n")) { $Content += "`n" }
+  # Resolve relative to PowerShell's location ($PWD). [IO.Path]::GetFullPath alone
+  # uses the .NET process CWD, which can diverge from $PWD after Set-Location/cd —
+  # that was writing to e.g. C:\Users\...\docs instead of .\docs under the project.
+  if (-not [System.IO.Path]::IsPathRooted($Path)) {
+    $Path = Join-Path -Path (Get-Location).Path -ChildPath $Path
+  }
   $abs = [System.IO.Path]::GetFullPath($Path)
+  $dir = [System.IO.Path]::GetDirectoryName($abs)
+  if ($dir -and -not [System.IO.Directory]::Exists($dir)) {
+    [void][System.IO.Directory]::CreateDirectory($dir)
+  }
   $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
   [System.IO.File]::WriteAllText($abs, $Content, $utf8NoBom)
 }
