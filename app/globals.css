@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #edf0f8;
+  --foreground: #0d1117;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #c9d6ff;
+  color: #0d1117;
+}
+
+/* ---------------------------------------------------------------------------
+   Beforth dot grid — signature radial-dot texture.
+   #C2CEE8 dots on #EDF0F8 slate, 28px spacing. Page background only.
+--------------------------------------------------------------------------- */
+.dot-grid {
+  background-image: radial-gradient(circle, #c2cee8 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center top;
+}
+
+/* ---------------------------------------------------------------------------
+   Prose typography defaults (Inter Light 300, 1.8 line-height)
+--------------------------------------------------------------------------- */
+.md-body {
+  font-weight: 300;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #0d1117;
+}
+
+.md-body p {
+  margin: 1.35em 0;
+}
+
+.md-body strong {
+  font-weight: 600;
+}
+
+.md-body em {
+  font-style: italic;
+}
+
+.md-body ul,
+.md-body ol {
+  margin: 1.25em 0;
+  padding-left: 1.4em;
+}
+
+.md-body ul {
+  list-style: disc;
+}
+
+.md-body ol {
+  list-style: decimal;
+}
+
+.md-body li {
+  margin: 0.45em 0;
+  padding-left: 0.35em;
+}
+
+.md-body li::marker {
+  color: #1a5bff;
+}
+
+.md-body li > ul,
+.md-body li > ol {
+  margin: 0.4em 0;
+}
+
+.md-body a {
+  color: #1a5bff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26, 91, 255, 0.35);
+  transition: border-color 0.15s ease;
+}
+
+.md-body a:hover {
+  border-bottom-color: #1a5bff;
+}
+
+.md-body hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid #d1d8e8;
+}
+
+.md-body blockquote {
+  margin: 1.5em 0;
+  border-left: 3px solid #1a5bff;
+  background: #ebf0ff;
+  padding: 0.9em 1.25em;
+  border-radius: 0 12px 12px 0;
+}
+
+.md-body blockquote p {
+  margin: 0.4em 0;
+}
+
+.md-body blockquote p:first-child {
+  margin-top: 0;
+}
+
+.md-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline code — pill style, only when NOT inside a <pre> */
+.md-body :not(pre) > code {
+  background: #ebf0ff;
+  color: #1a5bff;
+  border: 1px solid #d1d8e8;
+  padding: 0.15em 0.45em;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   Anchor links injected by rehype-autolink-headings
+--------------------------------------------------------------------------- */
+.anchor {
+  margin-left: 0.45em;
+  color: #1a5bff;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor {
+  opacity: 1;
+}
+
+.anchor svg {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------------------
+   Table styling
+--------------------------------------------------------------------------- */
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin: 1.5em 0;
+}
+
+.md-body thead th {
+  text-align: left;
+  font-weight: 600;
+  color: #0d1117;
+  border-bottom: 2px solid #1a5bff;
+  padding: 0.6em 0.9em;
+  white-space: nowrap;
+}
+
+.md-body tbody td {
+  padding: 0.6em 0.9em;
+  border-bottom: 1px solid #d1d8e8;
+  color: #0d1117;
+}
+
+.md-body tbody tr:hover {
+  background: #ebf0ff;
+}
+
+/* ---------------------------------------------------------------------------
+   Code block scroller
+--------------------------------------------------------------------------- */
+.code-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-scroll::-webkit-scrollbar-thumb {
+  background: #3d4a63;
+  border-radius: 999px;
+}
+
+.code-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Thin scrollbars for sidebar / toc rails */
+.rail-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rail-scroll::-webkit-scrollbar-thumb {
+  background: #c2cee8;
+  border-radius: 999px;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

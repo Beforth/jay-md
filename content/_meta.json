@@ -1,0 +1,7 @@
+{
+  "order": ["getting-started", "guides"],
+  "labels": {
+    "getting-started": "Getting Started",
+    "guides": "Guides"
+  }
+}
