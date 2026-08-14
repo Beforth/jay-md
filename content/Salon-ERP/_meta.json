@@ -1,0 +1,22 @@
+{
+  "order": [
+    "introduction",
+    "README",
+    "USER_GUIDE",
+    "DEVELOPER_GUIDE",
+    "ARCHITECTURE",
+    "HELP_BOOK",
+    "INVENTORY_CONTEXT",
+    "CHANGELOG_TEMPLATE"
+  ],
+  "labels": {
+    "introduction": "Introduction",
+    "README": "Overview",
+    "USER_GUIDE": "User Guide",
+    "DEVELOPER_GUIDE": "Developer Guide",
+    "ARCHITECTURE": "Architecture",
+    "HELP_BOOK": "Help Book",
+    "INVENTORY_CONTEXT": "Inventory Context",
+    "CHANGELOG_TEMPLATE": "Changelog"
+  }
+}

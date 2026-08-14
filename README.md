@@ -1,14 +1,14 @@
-# Beforth Docs
+# Salon ERP Docs
 
-A markdown-first documentation framework for the [Beforth](https://beforth.in)
-brand. Drop `.md` / `.mdx` files into `content/` and the site generates the
+Documentation site for the [Salon ERP](https://github.com/Beforth/salon-erp)
+project. Drop `.md` / `.mdx` files into `content/` and the site generates the
 sidebar navigation, routes, search index, Table of Contents, and prev/next
 links for you — no config, no routes to register.
 
 Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
 
 ```
-content/getting-started/introduction.md  →  /docs/getting-started/introduction
+content/Salon-ERP/introduction.md  →  /docs/Salon-ERP/introduction
 ```
 
 ---

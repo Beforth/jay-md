@@ -1,6 +1,15 @@
+---
+title: Architecture
+description: Diagram-first reference for how Salon ERP pieces connect.
+order: 5
+tags:
+  - Architecture
+  - Diagrams
+---
+
 # Architecture
 
-Diagram-first reference for how Salon ERP pieces connect. Exhaustive API/schema detail lives in the [Developer Guide](./DEVELOPER_GUIDE.md).
+Diagram-first reference for how Salon ERP pieces connect. Exhaustive API/schema detail lives in the [Developer Guide](/docs/Salon-ERP/DEVELOPER_GUIDE).
 
 ## System landscape
 
@@ -108,7 +117,7 @@ erDiagram
   AttendanceApiKey }o--o| Branch : scoped_to
 ```
 
-Full model list (~73 Prisma models): see [Developer Guide — Data model](./DEVELOPER_GUIDE.md#data--content-model).
+Full model list (~73 Prisma models): see [Developer Guide — Data model](/docs/Salon-ERP/DEVELOPER_GUIDE#data--content-model).
 
 ## External integrations
 
@@ -181,9 +190,9 @@ Default dashboards: owner/developer → `/dashboard/owner`; manager → `/dashbo
 
 ## Further reading
 
-- [README](./README.md) — overview and quick start
-- [Developer Guide](./DEVELOPER_GUIDE.md) — endpoints, env, deploy checklist
-- [User Guide](./USER_GUIDE.md) — screens and workflows
+- [README](/docs/Salon-ERP/README) — overview and quick start
+- [Developer Guide](/docs/Salon-ERP/DEVELOPER_GUIDE) — endpoints, env, deploy checklist
+- [User Guide](/docs/Salon-ERP/USER_GUIDE) — screens and workflows
 
 ## What changed in this update
 

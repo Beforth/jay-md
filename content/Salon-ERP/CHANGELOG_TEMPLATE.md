@@ -1,3 +1,11 @@
+---
+title: Changelog
+description: Keep a Changelog template for Salon ERP releases.
+order: 8
+tags:
+  - Changelog
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -19,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-<!--
+```md
 Example release:
 
 ## [1.0.0] - YYYY-MM-DD
@@ -29,7 +37,7 @@ Example release:
 
 [Unreleased]: https://github.com/<owner>/<repo>/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/<owner>/<repo>/releases/tag/v1.0.0
--->
+```
 
 ## What changed in this update
 

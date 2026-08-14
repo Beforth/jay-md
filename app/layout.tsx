@@ -12,11 +12,11 @@ const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-
 
 export const metadata: Metadata = {
   title: {
-    default: "Beforth Docs",
-    template: "%s · Beforth Docs",
+    default: "Salon ERP Docs",
+    template: "%s · Salon ERP Docs",
   },
   description:
-    "Beforth documentation — a markdown-first docs framework. Drop .md files in /content and the site builds itself.",
+    "Salon ERP documentation — a multi-branch salon management system. User guides, developer reference, and architecture for billing, inventory, attendance, and reporting.",
   icons: {
     icon: "/logo/beforth-mark-black.png",
   },

@@ -1,6 +1,16 @@
+---
+title: Developer Guide
+description: For engineers — local setup, environment variables, folder structure, data model, API reference, tests, and deployment.
+order: 4
+tags:
+  - Developer
+  - Setup
+  - API
+---
+
 # Developer Guide
 
-For engineers working on the Salon ERP monorepo: Vite/React frontend at the repo root and Express/Prisma backend in `salon-erp-be/`. Product overview: [README](./README.md). Diagrams: [ARCHITECTURE.md](./ARCHITECTURE.md). End-user flows: [USER_GUIDE.md](./USER_GUIDE.md).
+For engineers working on the Salon ERP monorepo: Vite/React frontend at the repo root and Express/Prisma backend in `salon-erp-be/`. Product overview: [README](/docs/Salon-ERP/README). Diagrams: [ARCHITECTURE.md](/docs/Salon-ERP/ARCHITECTURE). End-user flows: [USER_GUIDE.md](/docs/Salon-ERP/USER_GUIDE).
 
 ## Local setup
 
@@ -201,7 +211,7 @@ curl -s http://localhost:5001/health
 
 ### Frontend routes
 
-Defined in `src/App.jsx`. Auth wrapper: `ProtectedRoute` (authenticated only). Catch-all → `/`. Nested create/detail paths are not in the sidebar (see [USER_GUIDE](./USER_GUIDE.md)). Dead destinations: `/profile` (header link, no route). URL-only: `/counter-withdrawals`, `/bank-deposits`. Orphan page file: `pages/IncentivesPage.jsx` (not registered).
+Defined in `src/App.jsx`. Auth wrapper: `ProtectedRoute` (authenticated only). Catch-all → `/`. Nested create/detail paths are not in the sidebar (see [USER_GUIDE](/docs/Salon-ERP/USER_GUIDE)). Dead destinations: `/profile` (header link, no route). URL-only: `/counter-withdrawals`, `/bank-deposits`. Orphan page file: `pages/IncentivesPage.jsx` (not registered).
 
 ## Coding conventions (observed)
 
@@ -277,9 +287,10 @@ Output: `dist/`. `vercel.json` rewrites all paths to `index.html`. Root `Dockerf
 
 ## Further reading
 
-- [ARCHITECTURE.md](./ARCHITECTURE.md)
-- [USER_GUIDE.md](./USER_GUIDE.md)
-- Root [README.md](../README.md), [HELP_BOOK.md](../HELP_BOOK.md), [INVENTORY_CONTEXT.md](../INVENTORY_CONTEXT.md)
+- [ARCHITECTURE.md](/docs/Salon-ERP/ARCHITECTURE)
+- [USER_GUIDE.md](/docs/Salon-ERP/USER_GUIDE)
+- [HELP_BOOK.md](/docs/Salon-ERP/HELP_BOOK)
+- [INVENTORY_CONTEXT.md](/docs/Salon-ERP/INVENTORY_CONTEXT)
 
 ## What changed in this update
 

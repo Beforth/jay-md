@@ -1,3 +1,12 @@
+---
+title: Overview
+description: Salon ERP at a glance — features, tech stack, architecture, and quick start.
+order: 2
+tags:
+  - Overview
+  - Quick start
+---
+
 # Salon ERP
 
 Salon ERP is a multi-branch salon management system: a React web app for owners, managers, cashiers, and staff, backed by an Express API and PostgreSQL. It covers floor operations (tokens, chairs, billing), catalog and inventory, cash and expenses, attendance, incentives, and reporting.
@@ -38,7 +47,7 @@ flowchart LR
   Machines["Attendance devices / apps"] -->|"API key / webhook"| API
 ```
 
-More diagrams: [ARCHITECTURE.md](./ARCHITECTURE.md).
+More diagrams: [ARCHITECTURE.md](/docs/Salon-ERP/ARCHITECTURE).
 
 ## Quick start
 
@@ -65,26 +74,32 @@ npm install
 npm run dev
 ```
 
-⚠️ **NEEDS CONFIRMATION:** Root `README.md` documents the UI on port **5174**. Vite’s default, `Dockerfile` (`EXPOSE 5173`), `scripts/dev.sh`, and backend `CORS_ORIGIN` use **5173**. Use whichever port your `npm run dev` prints.
+The frontend README documents the UI on port **5174** (`npm run dev`). Vite's default, the `Dockerfile` (`EXPOSE 5173`), `scripts/dev.sh`, and the backend `CORS_ORIGIN` use **5173** — use whichever port your `npm run dev` prints.
 
-Seeded logins (from root README; only if you ran seed):
+Seeded logins (from the frontend README; only if you ran seed):
 
 | Username | Password | Role |
 | --- | --- | --- |
 | owner | Password123! | Owner |
-| manager1 | Password123! | Manager |
-| cashier1 | Password123! | Cashier |
-| employee1 | Password123! | Employee |
+| developer | Password123! | Developer |
+| manager1 | Password123! | Manager (Branch 1) |
+| manager2 | Password123! | Manager (Branch 2) |
+| cashier1 | Password123! | Cashier (Branch 1) |
+| employee1 | Password123! | Employee (Branch 1) |
+| employee2 | Password123! | Employee (Branch 1) |
+
+Seeded branches: `SB001` **Salon Branch 1** (Pimpri, Maharashtra) and `SB002` **Salon Branch 2** (Chinchwad, Maharashtra).
+
+The live demo frontend runs at [salon-erp-eta.vercel.app](https://salon-erp-eta.vercel.app).
 
 ## Further reading
 
-- [User Guide](./USER_GUIDE.md) — how to use the app (no code)
-- [Developer Guide](./DEVELOPER_GUIDE.md) — setup, API, schema, deploy
-- [Architecture](./ARCHITECTURE.md) — what connects to what
-- [Changelog template](./CHANGELOG_TEMPLATE.md) — Keep a Changelog blank template
-- Root [README.md](../README.md) — original frontend getting-started notes
-- [HELP_BOOK.md](../HELP_BOOK.md) — longer in-repo help content
-- [INVENTORY_CONTEXT.md](../INVENTORY_CONTEXT.md) — inventory domain notes
+- [User Guide](/docs/Salon-ERP/USER_GUIDE) — how to use the app (no code)
+- [Developer Guide](/docs/Salon-ERP/DEVELOPER_GUIDE) — setup, API, schema, deploy
+- [Architecture](/docs/Salon-ERP/ARCHITECTURE) — what connects to what
+- [Changelog template](/docs/Salon-ERP/CHANGELOG_TEMPLATE) — Keep a Changelog blank template
+- [Help Book](/docs/Salon-ERP/HELP_BOOK) — longer in-repo help content
+- [Inventory Context](/docs/Salon-ERP/INVENTORY_CONTEXT) — inventory domain notes
 
 ## What changed in this update
 

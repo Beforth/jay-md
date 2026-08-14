@@ -1,7 +1,6 @@
 {
-  "order": ["getting-started", "guides"],
+  "order": ["Salon-ERP"],
   "labels": {
-    "getting-started": "Getting Started",
-    "guides": "Guides"
+    "Salon-ERP": "Salon ERP"
   }
 }

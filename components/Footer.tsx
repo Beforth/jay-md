@@ -9,12 +9,15 @@ export function Footer() {
           <div className="max-w-sm">
             <WordmarkWhite className="h-6" />
             <p className="mt-4 font-display text-2xl uppercase leading-none tracking-wide2 text-white">
-              Ship banger docs.
+              Salon ERP docs.
             </p>
             <p className="mt-3 text-sm font-light leading-relaxed text-[#9AA7BD]">
-              A markdown-first documentation framework for Beforth. Drop files in{" "}
-              <code className="rounded bg-white/10 px-1.5 py-0.5 text-[12px] text-[#C2CEE8]">/content</code>{" "}
-              and the site builds itself.
+              Documentation for the Salon ERP multi-branch salon management
+              system — billing, inventory, attendance, and reporting. Built
+              with{" "}
+              <code className="rounded bg-white/10 px-1.5 py-0.5 text-[12px] text-[#C2CEE8]">Next.js</code>{" "}
+              and{" "}
+              <code className="rounded bg-white/10 px-1.5 py-0.5 text-[12px] text-[#C2CEE8]">MDX</code>.
             </p>
           </div>
 
@@ -23,13 +26,18 @@ export function Footer() {
               <p className="text-[11px] font-semibold uppercase tracking-wider2 text-[#8B97AC]">Docs</p>
               <ul className="mt-3 space-y-2 text-sm font-normal text-[#C2CEE8]">
                 <li>
-                  <Link href="/docs" className="transition-colors hover:text-white">
-                    Getting started
+                  <Link href="/docs/Salon-ERP/introduction" className="transition-colors hover:text-white">
+                    Introduction
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs/guides/configuration" className="transition-colors hover:text-white">
-                    Configuration
+                  <Link href="/docs/Salon-ERP/USER_GUIDE" className="transition-colors hover:text-white">
+                    User guide
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/docs/Salon-ERP/ARCHITECTURE" className="transition-colors hover:text-white">
+                    Architecture
                   </Link>
                 </li>
               </ul>

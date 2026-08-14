@@ -1,7 +1,0 @@
-{
-  "order": ["introduction", "installation"],
-  "labels": {
-    "introduction": "Introduction",
-    "installation": "Installation"
-  }
-}

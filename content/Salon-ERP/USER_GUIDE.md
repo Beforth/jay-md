@@ -1,6 +1,15 @@
+---
+title: User Guide
+description: A plain-language manual for people who use Salon ERP day to day — roles, screens, workflows, and FAQ.
+order: 3
+tags:
+  - User
+  - Guide
+---
+
 # User Guide
 
-This guide is for people who **use** Salon ERP day to day — not for programmers. If you need setup or API details, see the [Developer Guide](./DEVELOPER_GUIDE.md).
+This guide is for people who **use** Salon ERP day to day — not for programmers. If you need setup or API details, see the [Developer Guide](/docs/Salon-ERP/DEVELOPER_GUIDE).
 
 ## How to access the project
 
@@ -269,9 +278,9 @@ They are not listed under **Finance** in the sidebar. Only open them if your tea
 
 ## Further reading
 
-- [README](./README.md) — what the product is
-- [Developer Guide](./DEVELOPER_GUIDE.md) — technical setup and API
-- In-app **Docs**, and repo [HELP_BOOK.md](../HELP_BOOK.md) for longer help text
+- [README](/docs/Salon-ERP/README) — what the product is
+- [Developer Guide](/docs/Salon-ERP/DEVELOPER_GUIDE) — technical setup and API
+- [Help Book](/docs/Salon-ERP/HELP_BOOK) — longer in-app help content
 
 ## What changed in this update
 

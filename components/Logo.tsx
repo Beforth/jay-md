@@ -22,8 +22,8 @@ export function Wordmark({ className = "" }: LogoProps) {
 
   if (failed) {
     return (
-      <span className={`font-display text-[1.4rem] font-normal uppercase tracking-wide2 text-navy ${className}`}>
-        Beforth
+      <span className={`font-display text-[1.4rem] font-normal uppercase tracking-wide text-navy ${className}`}>
+        Salon ERP
       </span>
     );
   }
@@ -45,8 +45,8 @@ export function WordmarkWhite({ className = "" }: LogoProps) {
 
   if (failed) {
     return (
-      <span className={`font-display text-[1.4rem] font-normal uppercase tracking-wide2 text-white ${className}`}>
-        Beforth
+      <span className={`font-display text-[1.4rem] font-normal uppercase tracking-wide text-white ${className}`}>
+        Salon ERP
       </span>
     );
   }
@@ -74,7 +74,7 @@ export function BMark({ variant = "black", className = "" }: LogoProps & { varia
           variant === "white" ? "bg-white/10" : "bg-navy"
         } ${className}`}
       >
-        B
+        S
       </span>
     );
   }

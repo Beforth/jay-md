@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { isValidElement } from "react";
 import { CopyButton } from "./CopyButton";
+import { Mermaid } from "./Mermaid";
 
 function extractText(node: ReactNode): string {
   if (typeof node === "string" || typeof node === "number") return String(node);
@@ -12,11 +13,17 @@ function extractText(node: ReactNode): string {
 /**
  * Wraps a syntax-highlighted <pre> (produced by rehype-pretty-code) in the
  * Beforth deep-navy card with a language label and copy-to-clipboard pill.
+ * Mermaid fenced blocks are handed to the client-side <Mermaid> renderer
+ * instead of being shown as code.
  */
 export function CodeBlock({ children, node: _node, ...props }: { children?: ReactNode; node?: unknown }) {
   const language = (props as Record<string, string>)["data-language"];
   const label = language && language !== "text" ? language : "Code";
   const code = extractText(children);
+
+  if (language === "mermaid") {
+    return <Mermaid code={code} />;
+  }
 
   return (
     <div className="group my-6 overflow-hidden rounded-2xl border border-white/10 bg-deep-navy">
