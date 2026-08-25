@@ -3,47 +3,47 @@ import type { Metadata } from "next";
 import { getFirstDoc, getNavTree } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Beforth Docs",
+  title: "Marketing Docs",
   description:
-    "A markdown-first documentation framework for Beforth. Drop .md files in /content and the site builds itself.",
+    "Documentation for S&M Hub, Aureole Group's sales and marketing operations platform — leads, quotations, orders, events, and reporting.",
 };
 
 const FEATURES = [
   {
-    tag: "Content",
-    title: "Just add markdown",
-    body: "Drop a .md or .mdx file into a folder under /content. Routing, sidebar, search and prev/next links generate automatically.",
-    href: "/docs/getting-started/introduction",
+    tag: "Overview",
+    title: "What is S&M Hub",
+    body: "Aureole Group's sales and marketing operations platform — the end-to-end commercial pipeline with role-based access and row-level visibility.",
+    href: "/docs/introduction",
   },
   {
-    tag: "Search",
-    title: "Fuzzy search built in",
-    body: "Press ⌘K anywhere. A Fuse.js index of every title, description, heading and paragraph keeps discovery instant.",
-    href: "/docs/guides/configuration#search",
+    tag: "Users",
+    title: "User Guide",
+    body: "A plain-language manual: sign-in, navigation, every screen, example workflows, and answers to common questions.",
+    href: "/docs/user-guide",
   },
   {
-    tag: "Authoring",
-    title: "Callouts & admonitions",
-    body: "Note, Tip, Warning and Danger callouts with brand-tinted backgrounds and accent borders — right inside your markdown.",
-    href: "/docs/getting-started/introduction#callouts",
+    tag: "Developers",
+    title: "Developer Guide",
+    body: "Local setup, environment variables, the 53-model data model, API reference, tests, and deployment.",
+    href: "/docs/developer-guide",
   },
   {
-    tag: "Code",
-    title: "Tabs & code groups",
-    body: "Tabbed installation commands and multi-file code samples with deep-navy syntax-highlighted blocks and one-click copy.",
-    href: "/docs/getting-started/installation#tabs",
+    tag: "Architecture",
+    title: "Architecture & diagrams",
+    body: "Mermaid diagrams for the system landscape, auth flow, data model, integrations, and deployment.",
+    href: "/docs/architecture",
   },
   {
-    tag: "Code",
-    title: "Highlighted code blocks",
-    body: "Shiki-powered syntax highlighting on the Beforth dark theme, with language labels and copy-to-clipboard pills.",
-    href: "/docs/getting-started/installation#code-blocks",
+    tag: "Inventory",
+    title: "Inventory context",
+    body: "What \"inventory\" means in S&M Hub — commercial master data and pipeline records — plus known limitations.",
+    href: "/docs/inventory-context",
   },
   {
-    tag: "Layout",
-    title: "Auto table of contents",
-    body: "H2/H3 headings become a sticky “On this page” rail with scrollspy — plus an automatic Table of Contents for every doc.",
-    href: "/docs/guides/configuration#table-of-contents",
+    tag: "Reference",
+    title: "Help book",
+    body: "The in-depth help reference covering every screen, from leads and quotations to DSR and administration.",
+    href: "/docs/help-book",
   },
 ];
 
@@ -58,21 +58,22 @@ export default async function Home() {
         <div className="mx-auto max-w-4xl px-4 pb-20 pt-16 text-center sm:px-6 sm:pt-24">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider2 text-navy">
             <span className="h-1.5 w-1.5 rounded-full bg-blue" />
-            Beforth Docs · Markdown-first
+            S&amp;M Hub · Sales &amp; marketing operations
           </p>
 
           <h1 className="mt-8 font-display text-display-xl font-normal uppercase tracking-wide2 text-navy">
-            Ship banger
-            <span className="block text-blue">documentation.</span>
+            <span className="mb-4 block font-display text-display-lg font-normal tracking-wide2">
+              <span className="text-blue">S&amp;M</span>-<span className="text-navy">Hub</span>
+            </span>
+            Documentation
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-stone">
-            A custom-built docs framework for Beforth. Write plain markdown in{" "}
-            <code className="rounded bg-blue-tint px-1.5 py-0.5 text-[0.85em] font-medium text-blue">
-              /content
-            </code>
-            , and the site generates the sidebar, routing, search and table of
-            contents for you — no config required.
+            S&amp;M Hub is a React + FastAPI + PostgreSQL system covering the
+            full commercial pipeline: domains and regions, contacts and
+            customers, leads and quotations, orders, events, daily reporting,
+            and dashboards. This site documents the whole product — from user
+            guides to API reference.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -81,18 +82,12 @@ export default async function Home() {
                 href={firstDoc.href}
                 className="inline-flex items-center gap-2 rounded-full bg-blue px-7 py-3 text-xs font-semibold uppercase tracking-wider2 text-white transition-colors hover:bg-[#0F47D0]"
               >
-                Read the docs
+                Read docs
                 <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="m6 3 5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
             )}
-            <Link
-              href="/docs/getting-started/introduction"
-              className="inline-flex items-center gap-2 rounded-full border border-navy bg-navy px-7 py-3 text-xs font-semibold uppercase tracking-wider2 text-white transition-colors hover:bg-[#1C2333]"
-            >
-              Getting started
-            </Link>
           </div>
 
           <p className="mt-6 text-xs font-normal text-stone">
@@ -114,8 +109,8 @@ export default async function Home() {
                   Explore the docs
                 </h2>
                 <p className="mt-2 max-w-md text-sm font-light leading-relaxed text-stone">
-                  Every folder under /content becomes a section. Start with a
-                  group and follow the prev/next flow through the whole set.
+                  Every page is linked from the sidebar. Start with the
+                  introduction and follow the prev/next flow through the set.
                 </p>
               </div>
             </div>
@@ -153,11 +148,10 @@ export default async function Home() {
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="font-display text-display-md font-normal uppercase tracking-wide2 text-navy">
-            Built in, out of the box
+            Documentation highlights
           </h2>
           <p className="mt-2 max-w-md text-sm font-light leading-relaxed text-stone">
-            Everything a docs site needs — no plugins to wire up, no config to
-            maintain.
+            Jump straight to the most useful pages for the product.
           </p>
 
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,7 +171,7 @@ export default async function Home() {
                   {feature.body}
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider2 text-blue">
-                  See it live
+                  Open doc
                   <svg viewBox="0 0 16 16" className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="m6 3 5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

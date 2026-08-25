@@ -1,7 +1,15 @@
 {
-  "order": ["getting-started", "guides"],
+  "order": [
+    "introduction",
+    "overview",
+    "user-guide",
+    "developer-guide",
+    "architecture",
+    "changelog-template",
+    "help-book",
+    "inventory-context"
+  ],
   "labels": {
-    "getting-started": "Getting Started",
-    "guides": "Guides"
+    "general": "Marketing Docs"
   }
 }

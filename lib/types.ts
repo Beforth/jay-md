@@ -14,7 +14,7 @@ export interface Heading {
 }
 
 export interface DocNode {
-  /** Route slug, e.g. "getting-started/introduction". */
+  /** Route slug, e.g. "user-guide". */
   slug: string;
   /** Absolute file path on disk. */
   filePath: string;

@@ -1,14 +1,18 @@
-# Beforth Docs
+# Marketing Docs
 
-A markdown-first documentation framework for the [Beforth](https://beforth.in)
-brand. Drop `.md` / `.mdx` files into `content/` and the site generates the
-sidebar navigation, routes, search index, Table of Contents, and prev/next
-links for you — no config, no routes to register.
+Documentation site for **S&M Hub** — Aureole Group's sales and marketing
+operations platform. S&M Hub manages the end-to-end commercial pipeline:
+domains and regions, contacts, customers, organizations, leads, quotations,
+orders, events, and daily reporting (DSR), with role-based access and
+row-level visibility enforced by the backend.
 
 Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
+Every markdown file in `content/` automatically becomes a page at
+`/docs/<filename>`, complete with sidebar navigation, ⌘K search, table of
+contents, and prev/next links.
 
 ```
-content/getting-started/introduction.md  →  /docs/getting-started/introduction
+content/introduction.md  →  /docs/introduction
 ```
 
 ---
@@ -22,10 +26,27 @@ npm run build    # static generation + type-safe build
 npm run start    # serve the production build
 ```
 
-## Adding a doc (the whole workflow)
+## The docs
 
-1. Create a folder under `content/` (each folder = a **group** in the sidebar).
-2. Drop in a `.md` or `.mdx` file with frontmatter:
+All content lives in `content/`. Each file becomes a page in the sidebar:
+
+| File | Route | Contents |
+| --- | --- | --- |
+| `introduction.md` | `/docs/introduction` | What S&M Hub is, who it's for, how the docs are organised |
+| `overview.md` | `/docs/overview` | The two repos at a glance — stacks, environments, auth flow |
+| `user-guide.md` | `/docs/user-guide` | Non-technical manual — every screen and workflow |
+| `developer-guide.md` | `/docs/developer-guide` | Setup, data model, API reference, deployment |
+| `architecture.md` | `/docs/architecture` | Diagram-first system reference |
+| `changelog-template.md` | `/docs/changelog-template` | Blank release log template |
+| `help-book.md` | `/docs/help-book` | Screen-by-screen guide: prerequisites, steps, permissions, FAQ |
+| `inventory-context.md` | `/docs/inventory-context` | What "inventory" means in S&M Hub (master data + pipeline), and what it doesn't do |
+| `readme.md` | `/docs/readme` | Project overview — features, stack, architecture, quick start |
+
+Sidebar order follows the sequence Introduction → Overview → User guide → Developer guide → Architecture → Changelog → Help book → Inventory context (see `content/_meta.json` and each file's frontmatter `order`).
+
+### Adding or editing a doc
+
+Edit any `.md` file in `content/`, or drop in a new one:
 
 ```md
 ---
@@ -35,192 +56,34 @@ order: 1
 tags: [Guide]
 ---
 
-Write markdown here. Headings, code, tables, and callouts all work.
+Write markdown here. Headings, code, tables, callouts, and tabs all work.
 ```
 
-That's it. The page appears at `/docs/<folder>/<filename>`, in the sidebar,
-in search, and gets prev/next links chained to its neighbours.
+The page appears at `/docs/<filename>`, in the sidebar, in search, and gets
+prev/next links chained to its neighbours. No config required.
 
-### Frontmatter reference
-
-| Field | Type | Required | Notes |
+| Frontmatter field | Type | Required | Notes |
 | --- | --- | --- | --- |
 | `title` | string | Yes | Page header, sidebar, search, browser tab |
 | `description` | string | No | Search snippet + Open Graph description |
-| `order` | number | No | Sort key within its group |
+| `order` | number | No | Sort key within the docs list |
 | `tags` | string[] | No | Pill badges under the page title |
-| `group` | string | No | Overrides the folder-derived group |
-| `slug` | string | No | Overrides the route (e.g. `slug: install`) |
 
-## Sidebar ordering
-
-Order is resolved per group in this priority order:
-
-1. **`_meta.json`** — `{ "order": ["introduction", "installation"], "labels": { "introduction": "Intro" } }`
-   placed in the group folder. `order` entries match a page by filename, slug, or title.
-2. **Frontmatter `order`** — numeric, sorts within the group.
-3. **Alphabetical** — by title.
-
-Groups themselves are ordered by the **root** `content/_meta.json`:
-
-```json
-{
-  "order": ["getting-started", "guides"],
-  "labels": { "getting-started": "Getting Started" }
-}
-```
-
-`_meta.yaml` / `meta.yaml` / `meta.json` are accepted too. Without any meta,
-labels are humanized from folder names and everything sorts alphabetically.
-
-## Built-in MDX components
-
-Available in any file (plain `.md` works too — everything is compiled as MDX):
-
-### Callout
-
-```mdx
-<Callout type="note" title="Optional title">
-Context that shouldn't break the flow.
-</Callout>
-```
-
-`type` ∈ `note` | `tip` | `warning` | `danger`. Renders a tinted panel with a
-brand accent border. (Warning/danger use semantic tints for clarity.)
-
-### Tabs
-
-```mdx
-<Tabs>
-  <Tab label="npm">…</Tab>
-  <Tab label="pnpm">…</Tab>
-</Tabs>
-```
-
-`defaultValue` sets the initially active tab.
-
-### CodeGroup
-
-```mdx
-<CodeGroup>
-  <Tab label="content.ts">```ts …```</Tab>
-  <Tab label="page.tsx">```tsx …```</Tab>
-</CodeGroup>
-```
-
-Tabbed panels with a filename-style label. Plain fenced code blocks already get
-Shiki highlighting, a language label, and a copy-to-clipboard button — no
-component needed:
-
-````md
-```ts
-const doc = await getDocPage(slug);
-```
-````
+Sidebar ordering across the five files is controlled by
+`content/_meta.json`.
 
 ## Search
 
-Press **⌘K** / **Ctrl+K** (or the pill in the navbar). The index is built from
-every page's title, description, headings, and body text at build time and
-fuzzy-matched client-side with Fuse.js.
+Press **⌘K** / **Ctrl+K** (or the pill in the navbar). The index is built
+from every page's title, description, headings, and body text at build time
+and fuzzy-matched client-side.
 
 ## Structure
 
 ```
 app/          Routes: landing page, /docs redirect, /docs/[...slug], 404
 components/   Navbar, Sidebar, TOC, Footer, CmdK, MDX component set
-lib/          The framework: content loader, meta parser, headings, search, MDX pipeline
-content/      ← YOUR DOCS. Only this folder needs to change.
-public/logo/  Reserved for Beforth wordmark / B-mark PNGs
+lib/          Content loader, meta parser, headings, search, MDX pipeline
+content/      ← THE DOCS. Only this folder changes day to day.
+public/logo/  Beforth wordmark / B-mark PNGs
 ```
-
-## Framework / content separation
-
-Everything reusable lives in `app/`, `components/`, and `lib/`. Fork the repo,
-delete the example files from `content/`, and drop in your own — nothing else
-changes.
-
-Key files:
-
-- `lib/content.ts` — walks `content/`, parses frontmatter, builds the nav tree,
-  search index, and prev/next links (cached per build).
-- `lib/mdx.ts` — shared remark/rehype pipeline + the MDX component map.
-- `lib/headings.ts` — extracts h2/h3 + plain text; ids match `rehype-slug`.
-- `lib/meta.ts` — `_meta.json`/YAML parsing and ordering.
-- `tailwind.config.ts` — the full Beforth palette and type tokens.
-
-## Theming
-
-Colors and fonts are registered in `tailwind.config.ts` and
-`app/layout.tsx` (via `next/font/google`):
-
-- **Bebas Neue** — display headings only (H1/H2/section headers), always uppercase.
-- **Inter** (Light 300 body, Regular 400 nav, Medium 500 tags/active, SemiBold 600 buttons).
-- Palette: navy `#0D1117`, blue `#1A5BFF`, slate-bg `#EDF0F8`,
-  deep-navy `#1C2333`, stone `#6B7280`, border `#D1D8E8`,
-  blue-tint `#EBF0FF`, dot-grid `#C2CEE8`.
-
-The signature **dot grid** (radial dots at 28px spacing) is applied to the page
-background only — never on dark or colored surfaces.
-
-## Deployment
-
-Any Node/Vercel host. `npm run build` statically generates all doc routes;
-unknown slugs return a styled 404. No environment variables required.
-
-## Doc scaffolding scripts
-
-Any project can get a starter documentation folder — plus an AI-generation
-prompt — with a single command. The scripts are self-contained (every template
-is embedded, nothing is downloaded at runtime) and work in any repo, with or
-without this framework.
-
-**Linux / macOS**
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Beforth/jay-md/main/scripts/populate-docs.sh | bash
-```
-
-Download first if you want the interactive conflict menu:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Beforth/jay-md/main/scripts/populate-docs.sh -o populate-docs.sh
-bash populate-docs.sh
-```
-
-**Windows (PowerShell 5.1+)**
-
-```powershell
-irm https://raw.githubusercontent.com/Beforth/jay-md/main/scripts/populate-docs.ps1 -OutFile populate-docs.ps1
-.\populate-docs.ps1
-```
-
-Creates `docs/` with:
-
-| File | Purpose |
-| --- | --- |
-| `README.md` | Project overview (what it is, features, stack, architecture) |
-| `USER_GUIDE.md` | User-facing manual |
-| `DEVELOPER_GUIDE.md` | Contributing, build, test, release |
-| `ARCHITECTURE.md` | System design and key decisions |
-| `CHANGELOG_TEMPLATE.md` | Blank release log to keep going forward |
-| `DOCS_PROMPT.md` | Paste into any AI agent to generate the real documentation |
-
-Then follow the steps in `docs/DOCS_PROMPT.md`: point it at your repo, run it,
-review, iterate.
-
-**Options** (both scripts):
-
-| Argument | Effect |
-| --- | --- |
-| `<folder>` | Target folder (default `docs`) |
-| `--force` | Overwrite existing files, skip the conflict prompt |
-| `--yes` | Non-interactive; auto-pick `docs-2`, `docs-3`, … if the folder exists |
-
-If the folder already exists you're asked: add missing files (keeping existing
-ones), create a different folder (auto-suggested or custom name), or abort. The
-prompt file is written with the chosen folder name filled in.
-
-> **Maintenance note:** the templates and prompt are embedded in
-> `scripts/populate-docs.sh`, `scripts/populate-docs.ps1`, and
-> `docs/DOCS_PROMPT.md`. If you edit one, update all three.
